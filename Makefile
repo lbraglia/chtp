@@ -1,0 +1,6 @@
+publish: zip
+	lftp -f ftp_script
+
+zip: 
+	zip chtp5.zip ??_?? ??_??.c 
+

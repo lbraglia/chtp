@@ -1,0 +1,12 @@
+a)
+	void zero(long bigIntegers[])
+
+b)
+	void zero(long bigIntegers[]);
+
+c)
+	int add1AndSum(int oneTooSmall[])
+
+d)
+
+	int add1AndSum(int oneTooSmall[]);

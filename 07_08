@@ -1,0 +1,2 @@
+a) T
+b) F. b+=3 does not work (vector name is a const * )
