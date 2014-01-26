@@ -1,6 +1,6 @@
-publish: zip
+publish: 
 	lftp -f ftp_script
 
-zip: 
-	zip chtp5.zip ??_?? ??_??.c 
-
+save:
+	git commit
+	git push
