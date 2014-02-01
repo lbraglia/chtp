@@ -24,7 +24,7 @@ int main()
     printf("Smallest is %d\n", min);
 
     /* max */
-    max = a;			/* let's assume a is min */
+    max = a;			/* let's assume a is max */
     if (b > max)
 	max = b;
     if (c > max)

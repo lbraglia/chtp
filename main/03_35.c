@@ -28,7 +28,7 @@ int main (void) {
    printf("4nd digit = %d\n", fourth_digit);
    printf("5nd digit = %d\n", fifth_digit);
 
-   ((first_digit == fifth_digit) && (second_digit ==  fourth_digit)) ?
+   ((first_digit == fifth_digit) * (second_digit ==  fourth_digit)) ?
       printf("Number %d is palindrome\n", number) :
       printf("Number %d is NOT palindrome\n", number) ;
       
