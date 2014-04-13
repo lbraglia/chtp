@@ -57,7 +57,7 @@ in <a href="https://github.com/lbraglia/chtp/archive/master.zip">this
 
 <h4>Syntax highlighting?</h4> 
 Yes... look
-<a href="https://github.com/lbraglia/chtp/tree/master/main"> here</a>
+<a href="https://github.com/lbraglia/chtp/tree/master/src"> here</a>
 (equivalent contents).
 <br>
 <br>
