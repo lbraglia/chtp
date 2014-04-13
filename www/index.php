@@ -25,7 +25,7 @@ worked as expected. <br>
 Consider that exercises enumeration is based on italian
 translation of the book (english 5th edition); likely (I
 hope) it will be the same for others. Further it's all work in
-progress (hey, I'm learning C, too ). <br>
+progress. <br>
 
 The author will <b>not</b> reply to mail asking for help (and
 believe me when I'm saying that this's for your good :) ); use
@@ -495,7 +495,7 @@ href="../contact.php">here</a> ; then
   ). If you want the code paternity to be knowable, put a comment
   like /*Solution provided by foo*/ or something similar;
 <li> The solutions will checked be with
-<pre> gcc -W -Wall -ansi -pedantic xx_yy.c </pre>
+<pre> gcc -Wall -ansi -pedantic xx_yy.c </pre>
 <li> and if badly (badly) indented, cleaned up with Emacs.
 </ul>
 <br>
