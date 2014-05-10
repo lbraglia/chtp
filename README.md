@@ -2,13 +2,19 @@
 
 ### Intro
 
-Here you can find my solutions. Code is distributed
-in the hope that it will be useful, but **without any warranty**
-(correctness, safety, etc). 
+[Here](https://github.com/lbraglia/chtp/tree/master/src) you can
+find my solutions. 
+
+If you are looking for Deitel &amp; Deitel - "C++ How To Program"
+solutions instead, look
+[here](https://github.com/lbraglia/cpphtp).
+
+The code is distributed in the hope that it will be useful, but
+**without any warranty** (correctness, safety, etc).
 
 Consider that exercises enumeration is based on italian
 translation of the book (english 5th edition); likely (I hope) it
-will be the same for others. Further it's all work in progress.
+will be the same for others. Furthermore it's all work in progress.
 
 ### How to contribute
 
@@ -32,7 +38,7 @@ list;
 you want the code paternity to be knowable, put a comment like
 `/*Solution provided by foo*/` or something similar;
 * The solutions will checked be with
-```
+```bash
  gcc -W -Wall -ansi -pedantic xx_yy.c 
 ```
 and if badly (badly) indented, cleaned up with Emacs.
