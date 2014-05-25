@@ -1,11 +1,11 @@
-#Deitel &amp; Deitel - "C How To Program" - solutions to exercises
+#Deitel &amp; Deitel - "C and C++ How To Program" - solutions to exercises
 
 ### Intro
 
 [Here](https://github.com/lbraglia/chtp/tree/master/src) you can
 find my solutions. 
 
-If you are looking for Deitel &amp; Deitel - "C++ How To Program"
+If you are looking for **Deitel &amp; Deitel - "C++ How To Program"**
 solutions instead, look
 [here](https://github.com/lbraglia/cpphtp).
 
