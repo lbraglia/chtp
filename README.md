@@ -3,7 +3,7 @@
 ### Intro
 
 [Here](https://github.com/lbraglia/chtp/tree/master/src) you can
-find my solutions. 
+find my solutions for **Deitel &amp; Deitel - "C How To Program"**
 
 If you are looking for **Deitel &amp; Deitel - "C++ How To Program"**
 solutions instead, look
