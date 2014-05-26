@@ -43,6 +43,12 @@ you want the code paternity to be knowable, put a comment like
 ```
 and if badly (badly) indented, cleaned up with Emacs.
 
+You are welcome to:
+
+- submit suggestions and bug-reports at: https://github.com/lbraglia/chtp/issues
+- fork and send a pull request on: https://github.com/lbraglia/
+- send an e-mail to: lbraglia@gmail.com
+
 ### Contributors, so far
 
 [Here](https://raw.github.com/lbraglia/chtp/master/CONTRIBUTORS)
