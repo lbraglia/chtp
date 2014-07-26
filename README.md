@@ -1,4 +1,4 @@
-#Deitel &amp; Deitel - "C and C++ How To Program" - solutions to exercises
+#Deitel &amp; Deitel - "C How To Program" - solutions to exercises
 
 ### Intro
 
