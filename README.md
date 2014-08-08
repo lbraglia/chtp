@@ -38,10 +38,10 @@ list;
 you want the code paternity to be knowable, put a comment like
 `/*Solution provided by foo*/` or something similar;
 * The solutions will checked be with
-```bash
- gcc -W -Wall -ansi -pedantic xx_yy.c 
-```
-and if badly (badly) indented, cleaned up with Emacs.
+  ```bash
+  gcc -W -Wall -ansi -pedantic xx_yy.c 
+  ```
+  and if badly (badly) indented, cleaned up with Emacs.
 
 You are welcome to:
 
