@@ -185,7 +185,7 @@ void available_chairs(int class)
 	end = 9;
     }
 
-//      printf("class: %s\n" class == 1 ? "first class" :  "economy class");
+    /* printf("class: %s\n" class == 1 ? "first class" :  "economy class"); */
     for (i = start; i <= end; i++)
 	if (airplane[i] == 0)
 	    printf("%2d ", i + 1);

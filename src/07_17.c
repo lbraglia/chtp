@@ -14,7 +14,7 @@ void print_situation(const int *tort_pos, const int *hare_pos);
 
 /* MAIN */
 int main(void)
-{//-----------
+{
 
    int tort_position = 1;       /* tortoise position */
    int hare_position = 1;       /* hare position */
@@ -50,14 +50,14 @@ int main(void)
 /* ------------------------------------------------ */
 
 int dice(void)
-{//-----------
+{
    return (rand() % 10 + 1);
 }
 
 
 
 void move(int *position, const int identificator)
-{//----------------------
+{
    int launch = dice();
 
    if (identificator == 1)      /* tortoise moves */
