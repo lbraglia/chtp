@@ -10,7 +10,7 @@ int main()
 	scanf("%d", &side);
 	
 	if(side < side_min )
-		printf("Side must be > %d", side_min);
+		printf("Side must be > %d\n", side_min);
 	
 	else if(side <= side_max){
 		
@@ -27,7 +27,7 @@ int main()
 			currow++;
 		}
 	}else
-		printf("side must be <= %d", side_max);
+		printf("side must be <= %d\n", side_max);
 
 	return 0;
 }
