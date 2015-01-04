@@ -6,19 +6,17 @@
 int main(void)
 {
 
-   char a[MAXLEN], b[MAXLEN];
-   int results;
-   char * results_word;
-   gets(a);
-   gets(b);
-   results = strcmp(a,b);
-   results_word = 
-      results>0 ? "greater than" : 
-      results == 0? "equal to" : "less than"
-      ;
+    char a[MAXLEN], b[MAXLEN];
+    int results;
+    char *results_word;
+    gets(a);
+    gets(b);
+    results = strcmp(a, b);
+    results_word =
+	results > 0 ? "greater than" :
+	results == 0 ? "equal to" : "less than";
 
-   printf("\"%s\" is %s \"%s\" \n",
-          a, results_word,  b );
+    printf("\"%s\" is %s \"%s\" \n", a, results_word, b);
 
-   return 0;
+    return 0;
 }

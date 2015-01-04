@@ -4,21 +4,22 @@
 
 #include <stdio.h>
 
-int main (void) {
+int main(void)
+{
 
-   int n=0;
-   int backup;
+    int n = 0;
+    int backup;
 
-   printf("Enter an integer (default=0). n=");
-   scanf("%d", &n);
+    printf("Enter an integer (default=0). n=");
+    scanf("%d", &n);
 
-   backup = n;
-   
-   printf("n-- prints %d\n", backup--);
-   printf("--n prints %d\n", --n);
+    backup = n;
+
+    printf("n-- prints %d\n", backup--);
+    printf("--n prints %d\n", --n);
 
 
 
-   return 0;
+    return 0;
 
 }

@@ -8,40 +8,42 @@ double fahrenheit(double celsius);
 double celsius(double fahrenheit);
 
 
-int main(void){
-   int index;
+int main(void)
+{
+    int index;
 
-   printf("\nCelsius Fahrenheit  |  Fahrenheit Celsius\n");
-   for(index=0; index <= (212-32); index++){
-      if(index<=100) {
-	 /* celsius to fahrenheit */
-	 printf("%7d %10.2f",index, fahrenheit(index));
-	 /* separator */
-	 printf("  |  ");
-      }
-      else {
-	 /* blank for Celsius to fahrenheit */
+    printf("\nCelsius Fahrenheit  |  Fahrenheit Celsius\n");
+    for (index = 0; index <= (212 - 32); index++) {
+	if (index <= 100) {
+	    /* celsius to fahrenheit */
+	    printf("%7d %10.2f", index, fahrenheit(index));
+	    /* separator */
+	    printf("  |  ");
+	} else {
+	    /* blank for Celsius to fahrenheit */
 	    printf("                    |  ");
-      }
+	}
 
-      /* fahrenheit to celsius */
-      printf("%10d %7.2f\n", index+32, celsius(index+32));
+	/* fahrenheit to celsius */
+	printf("%10d %7.2f\n", index + 32, celsius(index + 32));
 
-   }
-   printf("\n");
-
-
-   return 0;
-
-}
+    }
+    printf("\n");
 
 
-double celsius(double fahrenheit){
-   return ((5.0/9.0) * (fahrenheit - 32.0));
+    return 0;
 
 }
 
-double fahrenheit(double celsius){
-   return ((9.0/5.0) * celsius + 32 );
+
+double celsius(double fahrenheit)
+{
+    return ((5.0 / 9.0) * (fahrenheit - 32.0));
+
+}
+
+double fahrenheit(double celsius)
+{
+    return ((9.0 / 5.0) * celsius + 32);
 
 }

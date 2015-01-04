@@ -25,8 +25,7 @@ int main(void)
 
 	    print_stat(nofquestions, wrongs, rights, nofanswers);
 
-	    if ((nofanswers % 10 == 0) && (bad_stats(nofanswers, rights)))
-	    {
+	    if ((nofanswers % 10 == 0) && (bad_stats(nofanswers, rights))) {
 		interruptme = 1;
 		extra_help();
 		break;

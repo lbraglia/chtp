@@ -10,7 +10,7 @@ int main()
 
     if (a % b == 0)
 	printf("a is a multiple of b\n");
-    else 
+    else
 	printf("a is not a multiple of b\n");
 
     return 0;

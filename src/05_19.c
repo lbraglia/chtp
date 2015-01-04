@@ -2,28 +2,30 @@
 
 void drawSquare(int side);
 
-int main(void){
-   int s;
+int main(void)
+{
+    int s;
 
-   printf("Enter side: ");
-   scanf("%d", &s);
+    printf("Enter side: ");
+    scanf("%d", &s);
 
-   drawSquare(s);
+    drawSquare(s);
 
-   return 0;
+    return 0;
 
 }
 
 
-void drawSquare(int side) {
-   int col, row;
+void drawSquare(int side)
+{
+    int col, row;
 
-   for(row=1; row <= side; row++){
-      for(col=1; col <= side; col++){
-	 printf("*");
-      }
-      printf("\n");
-   }
-   
+    for (row = 1; row <= side; row++) {
+	for (col = 1; col <= side; col++) {
+	    printf("*");
+	}
+	printf("\n");
+    }
+
 
 }

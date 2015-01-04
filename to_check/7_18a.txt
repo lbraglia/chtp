@@ -1,0 +1,24 @@
+  
+  ************************************
+  Simpletron Code
+  Sum of 10 numeri
+  ************************************
+  
+memory location         |     Instruction code
+
+         00                   +1014 (read A)
+         01                   +2014 (load A)
+         02                   +1015 (read B)
+         03                   +3015 (add B)
+         04                   +2114 (Store A)
+         05                   +2013 (Load counter)
+         06                   +3112 (subtract 1 from counter)
+         07                   +2113 (store counter updated)
+         08                   +4210 (if counter 0: end)
+         09                   +4001 (jump to 01)
+         10                   +1114 (print result stored in A)
+         11                   +4300 (Halt)
+         12                   +0001 (step)
+         13                   +0009 (counter)
+         14                   A
+         15                   B

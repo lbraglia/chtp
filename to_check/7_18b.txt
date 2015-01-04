@@ -1,0 +1,29 @@
+
+
+      ****************************************
+      Simpletron code
+      mean of 7 numbers
+      ****************************************
+         
+   Memory location      |
+         
+         00                   +1018 (read A)
+         01                   +2018 (load A)
+         02                   +1019 (read B)
+         03                   +3019 (add B)
+         04                   +2118 (store A)
+         05                   +2016 (load counter)
+         06                   +3115 (subtract step = 1 from counter)
+         07                   +2116 (store updated counter)
+         08                   +4210 (if counter = 0: end)
+         09                   +4001 (jump to 02)
+         10                   +2017 (load divisor)
+         11                   +3218 (divide memory location by accumulator: 7)
+         12                   +2118 (store result)
+         13                   +1118 (print result)
+         14                   +4300 (Halt)
+         15                   +0001 (step)
+         16                   +0006 (counter)
+         17                   +0007 (divisor)
+         18                   A
+         19                   B
