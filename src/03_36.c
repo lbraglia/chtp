@@ -3,29 +3,31 @@
 int main()
 {
 
-    long int binary;
+    int binary;
 
     int size = 1;
-    int next = 1;
-    long int mult = 10;
+    int Next = 1;
+    int mult = 10;
 
     int decimal = 0;
-    long int value = 1;
-    long int module = 10;
+    int value = 1;
+    int module = 10;
 
+    int pos;    
+    
     printf("Binary  -> ");
-    scanf("%ld", &binary);
+    scanf("%d", &binary);
 
-    while (next) {
+    while (Next) {
 	if (binary >= mult) {
 	    size++;
 	    mult *= 10;
 	} else
-	    next = 0;
+	    Next = 0;
     }
 
     while (size--) {
-	int pos = (binary % module) / (module / 10);
+	pos = (binary % module) / (module / 10);
 	module *= 10;
 	decimal += (pos >= 1 ? 1 : 0) * value;
 	value *= 2;
