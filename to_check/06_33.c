@@ -8,75 +8,65 @@
 #include <stdio.h>
 
 int getString(void);
-int rPalindrome(char string[ 50 ], int lenght, int pos);
+int rPalindrome(char string[50], int lenght, int pos);
 
-char string[ 50 ];
+char string[50];
 
 
-int main(void){
+int main(void)
+{
 
-   int lenght = getString(); // get string and return string length
+    int lenght = getString();	// get string and return string length
 
-   int test = rPalindrome(string, lenght, 0); // test if palindrome
-   
-   if (test == 1)
-   {
-      printf( "It' a palindrome\n");
-   }
-   else
-   {
-      printf( "Not a palindrome\n");
-   }
-   
-   return 0;
+    int test = rPalindrome(string, lenght, 0);	// test if palindrome
 
-}// end main
+    if (test == 1) {
+	printf("It' a palindrome\n");
+    } else {
+	printf("Not a palindrome\n");
+    }
+
+    return 0;
+
+}				// end main
 
 
 /* test every element with the element in the same position starting from the end; 
    when reach mid-string the test is over: for even lenght string the last test 
    is redundant */
-int rPalindrome(char string[], int lenght, int pos){
+int rPalindrome(char string[], int lenght, int pos)
+{
 
 
-   if (pos == lenght / 2)
-   {
-      if (string[ pos ] == string[ lenght - pos ])
-      {
-         return 1;
-      }
-      else
-      {
-         return 0;
-      }
-   }
-   else if (string[ pos ] == string[ lenght - pos])
-   {
-      rPalindrome(string, lenght, pos + 1);
-   }
-   else
-   {
-      return 0;
-   }
+    if (pos == lenght / 2) {
+	if (string[pos] == string[lenght - pos]) {
+	    return 1;
+	} else {
+	    return 0;
+	}
+    } else if (string[pos] == string[lenght - pos]) {
+	rPalindrome(string, lenght, pos + 1);
+    } else {
+	return 0;
+    }
 
-}//end rPalindrome
+}				//end rPalindrome
 
-int getString(void){
+int getString(void)
+{
 
-   int i = 0;
-   char c;
-   printf( "Insert lowe case string (end with: crtl-D)\n" );
-   
-   // get character until EOF
-   while (( c = getchar() ) != EOF )
-   {  
-      // use character only if lower case letters
-      if (c > 96 && c < 123)
-      {
-       string[ i ] = c;
-       i++;
-      }   
-   }
+    int i = 0;
+    char c;
+    printf("Insert lowe case string (end with: crtl-D)\n");
+
+    // get character until EOF
+    while ((c = getchar()) != EOF) {
+	// use character only if lower case letters
+	if (c > 96 && c < 123) {
+	    string[i] = c;
+	    i++;
+	}
+    }
     return i - 1;
-    
-} // end getString
+
+}				// end getString
