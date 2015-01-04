@@ -5,10 +5,6 @@
 [Here](https://github.com/lbraglia/chtp/tree/master/src) you can
 find my solutions for **Deitel &amp; Deitel - "C How To Program"**
 
-If you are looking for **Deitel &amp; Deitel - "C++ How To Program"**
-solutions instead, look
-[here](https://github.com/lbraglia/cpphtp).
-
 The code is distributed in the hope that it will be useful, but
 **without any warranty** (correctness, safety, etc).
 
@@ -30,15 +26,15 @@ expected by exercise question;
 available online;
 * every solution must be based only on chapter stuff or concepts
 from previous chapters: not on stuff to be explained yet;
-* please send me files like `xx_yy.c` (where `xx == chapter`, `yy ==
+* *do* send me files like `xx_yy.c` (where `xx == chapter`, `yy ==
 exercise_number`);
 * tell me if you don't want to be mentioned in the contributors
 list;
 * I will not specify "who made what". If
 you want the code paternity to be knowable, put a comment like
 `/*Solution provided by foo*/` or something similar;
-* The solutions will checked be with ```gcc -Wall -ansi -pedantic xx_yy.c  ```
-  and if badly (badly) indented, cleaned up with Emacs.
+* The solutions will checked be with `gcc -Wall -Wextra -ansi -pedantic
+xx_yy.c` and indented with GNU indent.
 
 You are welcome to:
 
@@ -49,5 +45,3 @@ You are welcome to:
 ### Contributors, so far
 
 [Here](https://raw.github.com/lbraglia/chtp/master/CONTRIBUTORS)
-
-
