@@ -24,7 +24,8 @@ int main(void)
 
     const char *face[13] =
 	{ "Ace", "Deuce", "Three", "Four", "Five", "Six", "Seven", "Eight",
-"Nine", "Ten", "Jack", "Queen", "King" };
+	"Nine", "Ten", "Jack", "Queen", "King"
+    };
 
     int deck[4][13] = { {0} };
 

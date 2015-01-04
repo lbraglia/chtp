@@ -13,8 +13,8 @@ int main()
     int value = 1;
     int module = 10;
 
-    int pos;    
-    
+    int pos;
+
     printf("Binary  -> ");
     scanf("%d", &binary);
 

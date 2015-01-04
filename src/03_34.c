@@ -16,7 +16,7 @@ int main()
 
 	while (currow <= side) {
 	    /* If the current row is the first row ... */
-	    if (currow == 1) {	
+	    if (currow == 1) {
 		curcol = 1;
 		while (curcol <= side) {	/*... go fill it */
 		    printf("*");
@@ -26,7 +26,7 @@ int main()
 		currow++;
 	    }
 	    /* The same if it's the last one */
-	    else if (currow == side) {	
+	    else if (currow == side) {
 		curcol = 1;
 		while (curcol <= side) {
 		    printf("*");
@@ -34,8 +34,7 @@ int main()
 		}
 		printf("\n");
 		currow++;
-	    }
-	    else { /* in every other row fill only first and last column */
+	    } else {		/* in every other row fill only first and last column */
 		curcol = 1;
 		while (curcol <= side) {
 		    if (curcol == 1)
