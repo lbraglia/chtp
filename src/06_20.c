@@ -20,31 +20,29 @@ int main(void)
 
     for (repetitions = 100; repetitions <= 100000; repetitions *= 10) {
 
-       /* execution & timing */
-       time_a = time(NULL);	/* start time */
-       for (i = 1; i <= repetitions; i++)
-	  craps(winning_freq, losing_freq);
-       time_b = time(NULL);	/* stop time */
-       for (i = 0; i <= 20; i++)	/* counting for winning game */
-	  wons += winning_freq[i];
+	/* execution & timing */
+	time_a = time(NULL);	/* start time */
+	for (i = 1; i <= repetitions; i++)
+	    craps(winning_freq, losing_freq);
+	time_b = time(NULL);	/* stop time */
+	for (i = 0; i <= 20; i++)	/* counting for winning game */
+	    wons += winning_freq[i];
 
-       /*printing results */
-       printf("Number of repetitions: %ld\n", repetitions);
-       printf("Time elapsed: %d sec.\n", time_b - time_a);
+	/*printing results */
+	printf("Number of repetitions: %ld\n", repetitions);
+	printf("Time elapsed: %d sec.\n", time_b - time_a);
 
-       /* win & lost vectors */
-       printf("try\twon\tlost \n");
-       for (i = 0; i <= 19; i++) {
-	  printf("%3d\t%6d\t%6d \n",
-		 i + 1,
-		 winning_freq[i],
-		 losing_freq[i]);
-       }
-       printf("21+\t%6d\t%6d \n ", winning_freq[20], losing_freq[20]);
+	/* win & lost vectors */
+	printf("try\twon\tlost \n");
+	for (i = 0; i <= 19; i++) {
+	    printf("%3d\t%6d\t%6d \n",
+		   i + 1, winning_freq[i], losing_freq[i]);
+	}
+	printf("21+\t%6d\t%6d \n ", winning_freq[20], losing_freq[20]);
 
-       /* winning probability */
-       printf("Won games: %.2f%%\n", ((float) wons) / repetitions * 100);
-       printf("\n\n");
+	/* winning probability */
+	printf("Won games: %.2f%%\n", ((float) wons) / repetitions * 100);
+	printf("\n\n");
     } return 0;
 }
 

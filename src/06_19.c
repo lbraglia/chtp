@@ -13,7 +13,7 @@ int main(void)
     int theoretical_frequencies[11] = { 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 };
 
     srand(time(NULL));
-    
+
     for (rolls = 1; rolls <= 36000; rolls++) {
 	dice_a = dice();
 	dice_b = dice();
