@@ -1,8 +1,10 @@
+SRC = *.c
+
 clean:
 	rm -rf *.out
 	rm -rf *~
 
 indent:
-	indent -kr *.c
+	indent -kr ${SRC}
 	make clean
 
