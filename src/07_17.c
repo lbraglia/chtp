@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h>
 
 /* prototypes */
 int dice(void);
@@ -40,7 +39,6 @@ int main(void)
 	/* Check if anyone won, declare winner, and then exit */
 	check_for_winners(&tort_position, &hare_position, &exit);
 
-	sleep(1);
 	printf("\n");
     }
 
