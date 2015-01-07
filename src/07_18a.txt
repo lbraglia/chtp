@@ -1,8 +1,7 @@
-  
-  ************************************
-  Simpletron Code
-  Sum of 10 numeri
-  ************************************
+************************************
+Simpletron Code
+Sum of 10 numbers
+************************************
   
 memory location         |     Instruction code
 
