@@ -1,22 +1,23 @@
 #include <stdio.h>
 
+void stringReverse(char string[], int strlength);
+
 int main(void)
 {
     char asd[] = "ajeje";
-    printf("\n");
-    printArray(asd, 6);
+    stringReverse(asd, 6);
     printf("\n");
 
     return 0;
 }
 
-void printArray(char string[], int strlength)
+void stringReverse(char string[], int strlength)
 {
     if (strlength == 1)
 	return;
     else {
 	printf("%c", string[strlength - 1 - 1]);
-	printArray(string, strlength - 1);
+	stringReverse(string, strlength - 1);
     }
 
 }
