@@ -1,18 +1,18 @@
 /* Deitel & Deitel - "C How To Program"
-Exercise 7.19 - Simpletron 
-Solution provided by Matteo Galvani */
+   Exercise 7.19 - Simpletron 
+   Solution provided by Matteo Galvani */
 
 #include <stdio.h>
 #define SIZE 100
 
-// declarations
+/* declarations */
 void getInstructions(int instArr[]);
 void dump(int arr[], int acc, int iC, int iR, int oC, int o);
 void splitIR(int instructionRegister, int *oC, int *o);
 
 int main(void)
 {
-    // array holding simpletrons' instructions
+    /* array holding simpletrons' instructions */
     int memory[SIZE] = { 0 };
 
 
@@ -133,7 +133,7 @@ void getInstructions(int instArr[])
     printf("Input instructions code: range -9999; +9999\n\n");
 
     for (instNumber = 0; instNumber < SIZE; instNumber += 1) {
-	// check for instructions in allowed range
+	/* check for instructions in allowed range */
 	do {
 	    printf("%02i ? ", instNumber);
 	    scanf("%i", &instCode);
@@ -149,7 +149,7 @@ void getInstructions(int instArr[])
 
     printf("*** Program loading completed ***\n");
 
-}				// end getInstructions
+}
 
 void dump(int arr[], int acc, int iC, int iR, int oC, int o)
 {
@@ -178,11 +178,11 @@ void dump(int arr[], int acc, int iC, int iR, int oC, int o)
 	}
     }
 
-}				// end dump
+}
 
 void splitIR(int instructionRegister, int *oC, int *o)
 {
     *oC = instructionRegister / 100;
     *o = instructionRegister % 100;
 
-}				// end splitIR (instructionregister)
+}
