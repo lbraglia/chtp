@@ -9,6 +9,7 @@ int main(void)
     char a[MAXLEN], b[MAXLEN];
     int results;
     char *results_word;
+    printf("Enter two strings:\n");
     gets(a);
     gets(b);
     results = strcmp(a, b);
