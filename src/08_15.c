@@ -5,27 +5,28 @@ void printReversed(char string[]);
 
 int main(void)
 {
-   char string[] = "String to be reversed";
+    char string[] = "String to be reversed";
 
-   printReversed(string);
-      
-   return 0;
+    printReversed(string);
+
+    return 0;
 }
 
-void printReversed(char string[]){
+void printReversed(char string[])
+{
 
-   char * tokenPtr = strtok(string, " ");
-   char * tokens[1000];  
-   int i = 0;
-   
-   while( tokenPtr != NULL){
-      tokens[i] = tokenPtr;
-      tokenPtr = strtok(NULL, " ");      
-      i++;
-   }
+    char *tokenPtr = strtok(string, " ");
+    char *tokens[1000];
+    int i = 0;
 
-   for(--i; i >= 0; --i)
-      printf("%s ", tokens[i]);
-   printf("\n");
-   
+    while (tokenPtr != NULL) {
+	tokens[i] = tokenPtr;
+	tokenPtr = strtok(NULL, " ");
+	i++;
+    }
+
+    for (--i; i >= 0; --i)
+	printf("%s ", tokens[i]);
+    printf("\n");
+
 }
