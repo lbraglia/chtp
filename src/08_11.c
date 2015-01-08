@@ -22,7 +22,7 @@ int main(void)
     char *noun[DIM] = { "boy", "girl", "dog", "town", "car" };
     char *verb[DIM] = { "drove", "jumped", "ran", "walked", "skipped" };
     char *preposition[DIM] = { "to", "from", "over", "under", "on" };
-    char buffer[BUFFERLEN] = {'\0'};
+    char buffer[BUFFERLEN] = { '\0' };
     /* to have a sentence we use in sequence article, noun, verb,
        preposition, article and noun: under here you find that
        sequence in terms of words_index indexes */
