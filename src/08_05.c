@@ -25,17 +25,17 @@ int main(void)
 	       "islower(%c): \t%c\n"
 	       "tolower(%c): \t%c\n"
 	       "toupper(%c): \t%c\n\n",
-	       c, isalnum(c) ? 'V' : 'F',
-	       c, isalpha(c) ? 'V' : 'F',
-	       c, iscntrl(c) ? 'V' : 'F',
-	       c, isdigit(c) ? 'V' : 'F',
-	       c, isgraph(c) ? 'V' : 'F',
-	       c, isprint(c) ? 'V' : 'F',
-	       c, ispunct(c) ? 'V' : 'F',
-	       c, isspace(c) ? 'V' : 'F',
-	       c, isxdigit(c) ? 'V' : 'F',
-	       c, isupper(c) ? 'V' : 'F',
-	       c, islower(c) ? 'V' : 'F', c, tolower(c), c, toupper(c)
+	       c, isalnum(c) ? 'T' : 'F',
+	       c, isalpha(c) ? 'T' : 'F',
+	       c, iscntrl(c) ? 'T' : 'F',
+	       c, isdigit(c) ? 'T' : 'F',
+	       c, isgraph(c) ? 'T' : 'F',
+	       c, isprint(c) ? 'T' : 'F',
+	       c, ispunct(c) ? 'T' : 'F',
+	       c, isspace(c) ? 'T' : 'F',
+	       c, isxdigit(c) ? 'T' : 'F',
+	       c, isupper(c) ? 'T' : 'F',
+	       c, islower(c) ? 'T' : 'F', c, tolower(c), c, toupper(c)
 	    );
     }
 
