@@ -3,14 +3,14 @@
 ### Intro
 
 [Here](https://github.com/lbraglia/chtp/tree/master/src) you can
-find my solutions for **Deitel &amp; Deitel - "C How To Program"**
+find my solutions for **Deitel &amp; Deitel - "C How To Program"**.
 
 The code is distributed in the hope that it will be useful, but
 **without any warranty** (correctness, safety, etc).
 
 Consider that exercises enumeration is based on italian
 translation of the book (english 5th edition); likely (I hope) it
-will be the same for others. Furthermore it's all work in progress.
+will be the same for others.
 
 ### How to contribute
 
