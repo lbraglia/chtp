@@ -17,6 +17,7 @@ typedef charNode * charNodePtr;
 charNodePtr initialize(const char * string);
 charNodePtr concatenate(charNodePtr a, charNodePtr b);
 void printList(charNodePtr a);
+void * myMalloc(size_t size);
 
 int main(void){
 
@@ -52,7 +53,7 @@ charNodePtr initialize(const char * string){
    
     while( (buf = *(string +i)) != '\0' ){
 	
-	newNode = malloc(sizeof(charNode));
+	newNode = myMalloc(sizeof(charNode));
 	newNode->c = buf;
 	newNode->next = NULL;
 
@@ -76,4 +77,17 @@ void printList(charNodePtr a){
     }
     printf("NULL\n");
 
+}
+
+void * myMalloc(size_t size){
+
+    void * ptr;
+
+    ptr = malloc(size);
+    if (ptr == NULL){
+	printf("Heap memory is finished!");
+    }
+    return ptr;
+    /*doing so, the code above is cleaner and the program will fail
+      in the case NULL is used for dereferencing */
 }
