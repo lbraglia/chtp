@@ -7,19 +7,20 @@
 
 struct Char {
     char c;
-    struct Char * next;
+    struct Char *next;
 };
 
 typedef struct Char charNode;
-typedef charNode * charNodePtr;
+typedef charNode *charNodePtr;
 
 
-charNodePtr initialize(const char * string);
+charNodePtr initialize(const char *string);
 charNodePtr concatenate(charNodePtr a, charNodePtr b);
 void printList(charNodePtr a);
-void * myMalloc(size_t size);
+void *myMalloc(size_t size);
 
-int main(void){
+int main(void)
+{
 
     charNodePtr string1 = initialize("Hello ");
     charNodePtr string2 = initialize("World!");
@@ -30,36 +31,38 @@ int main(void){
 }
 
 
-charNodePtr concatenate(charNodePtr a, charNodePtr b){
+charNodePtr concatenate(charNodePtr a, charNodePtr b)
+{
 
     charNodePtr current = a;
 
     /* go to the end of the first */
-    while(current->next != NULL){
+    while (current->next != NULL) {
 	current = current->next;
     }
 
     current->next = b;
-    return(a);
+    return (a);
 }
 
-charNodePtr initialize(const char * string){
+charNodePtr initialize(const char *string)
+{
 
     unsigned int i = 0;
     charNodePtr head = NULL;
     charNodePtr current = NULL;
     charNodePtr newNode = NULL;
     char buf;
-   
-    while( (buf = *(string +i)) != '\0' ){
-	
+
+    while ((buf = *(string + i)) != '\0') {
+
 	newNode = myMalloc(sizeof(charNode));
 	newNode->c = buf;
 	newNode->next = NULL;
 
-	if (i > 0){ /*not 0 length list*/
+	if (i > 0) {		/*not 0 length list */
 	    current = current->next = newNode;
-	} else { /*0 length list*/
+	} else {		/*0 length list */
 	    head = current = newNode;
 	}
 
@@ -68,10 +71,11 @@ charNodePtr initialize(const char * string){
     return head;
 }
 
-void printList(charNodePtr a){
+void printList(charNodePtr a)
+{
 
     charNodePtr current = a;
-    while(current != NULL){
+    while (current != NULL) {
 	printf("%c _ ", current->c);
 	current = current->next;
     }
@@ -79,15 +83,16 @@ void printList(charNodePtr a){
 
 }
 
-void * myMalloc(size_t size){
+void *myMalloc(size_t size)
+{
 
-    void * ptr;
+    void *ptr;
 
     ptr = malloc(size);
-    if (ptr == NULL){
+    if (ptr == NULL) {
 	printf("Heap memory is finished!");
     }
     return ptr;
     /*doing so, the code above is cleaner and the program will fail
-      in the case NULL is used for dereferencing */
+       in the case NULL is used for dereferencing */
 }

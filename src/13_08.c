@@ -5,7 +5,8 @@
 
 #define PRINT(string) ( printf("%s", string) )
 
-int main (void){
+int main(void)
+{
 
     PRINT("Hello World!\n");
     return 0;

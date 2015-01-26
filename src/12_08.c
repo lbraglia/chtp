@@ -11,35 +11,37 @@
 
 struct Int {
     int data;
-    struct Int * next;
+    struct Int *next;
 };
 
 typedef struct Int intNode;
-typedef intNode * intNodePtr;
+typedef intNode *intNodePtr;
 
 /* intNodePtr initializeList(const int * string); */
 void printList(intNodePtr head);
 int dice(void);
 int doSum(intNodePtr head);
-void insert(intNodePtr *head, int x);
+void insert(intNodePtr * head, int x);
 
-int main(void){
+int main(void)
+{
 
-    int integers[NINTS] = {0};
+    int integers[NINTS] = { 0 };
     intNodePtr list1 = NULL;
     int i, sum = 0;
 
     srand(time(NULL));
 
     printf("Unsorted data:\n");
-    /* initializing the array*/
-    for(i = 0; i < NINTS; i++){
-	printf("%3d%s", integers[i] = dice(), (i+1) % WRAP == 0 ? "\n" : " " );
+    /* initializing the array */
+    for (i = 0; i < NINTS; i++) {
+	printf("%3d%s", integers[i] =
+	       dice(), (i + 1) % WRAP == 0 ? "\n" : " ");
     }
     printf("\n");
-    
+
     /* initialize the list */
-    for(i = 0; i < NINTS; i++){
+    for (i = 0; i < NINTS; i++) {
 	insert(&list1, integers[i]);
     }
     printList(list1);
@@ -47,20 +49,21 @@ int main(void){
     /* stats */
     sum = doSum(list1);
     printf("Sum = %d\nMean = %.2f\n", sum, ((float) sum) / NINTS);
-    
+
     return 0;
 }
 
 
 
-void insert(intNodePtr * s, int x){
+void insert(intNodePtr * s, int x)
+{
 
     intNodePtr new;
     intNodePtr previous;
     intNodePtr current;
 
-    new = malloc(sizeof( intNodePtr ));
-    if( new != NULL){
+    new = malloc(sizeof(intNodePtr));
+    if (new != NULL) {
 
 	new->data = x;
 	new->next = NULL;
@@ -68,12 +71,12 @@ void insert(intNodePtr * s, int x){
 	current = *s;
 
 	/* find the right position */
-	while(current != NULL && x > current->data){
+	while (current != NULL && x > current->data) {
 	    previous = current;
 	    current = current->next;
 	}
 
-	if (previous == NULL){
+	if (previous == NULL) {
 	    /* insert new element at the beginning  */
 	    new->next = *s;	/* *s is NULL */
 	    *s = new;		/* set head to point to new */
@@ -89,11 +92,12 @@ void insert(intNodePtr * s, int x){
 
 }
 
-int doSum(intNodePtr head){
+int doSum(intNodePtr head)
+{
     intNodePtr current = head;
     int sum = 0;
 
-    while(current->next != NULL){
+    while (current->next != NULL) {
 	sum += current->data;
 	current = current->next;
     }
@@ -103,13 +107,14 @@ int doSum(intNodePtr head){
     return sum;
 }
 
-void printList(intNodePtr head){
+void printList(intNodePtr head)
+{
 
     intNodePtr current = head;
     int i = 1;
     printf("Number list:\n");
-    while(current != NULL){
-	printf("%3d%s", current->data, i % WRAP == 0 ? "\n" : " " );
+    while (current != NULL) {
+	printf("%3d%s", current->data, i % WRAP == 0 ? "\n" : " ");
 	current = current->next;
 	i++;
     }
@@ -117,8 +122,9 @@ void printList(intNodePtr head){
 
 }
 
-int dice(void){
+int dice(void)
+{
 
-    return( rand() % 101 );
-    
+    return (rand() % 101);
+
 }
