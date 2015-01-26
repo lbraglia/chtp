@@ -3,7 +3,7 @@
  */
 #include <stdio.h>
 
-#define MINIMUM2(a, b) ( (a) < (b) ? a : b )
+#define MINIMUM2(a, b) ( (a) < (b) ? (a) : (b) )
 
 int main (void){
 
