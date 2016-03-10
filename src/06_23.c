@@ -1,154 +1,297 @@
 /* Deitel & Deitel - "C How To Program"
    Exercise 6.23 - Turtle graphics 
-   Solution provided by Matteo Galvani, with some fix by me (avoid round
-   and other misc stuff). 
+   Solution provided by rafael Bluhm
 */
-#include <stdio.h>
+#include <stdio.h> 
 
-#define FLOOR_DIM 50
-#define INIT_XPOS 25		/* Initial X */
-#define INIT_YPOS 25		/* Initial Y */
-#define PI 3.14159265358979323846264338327
+#define SIZE 50
 
-int Floor[FLOOR_DIM][FLOOR_DIM] = { {0} };
+/* * Prototypes: * */
 
-int xpos = INIT_XPOS;
-int ypos = INIT_YPOS;
-enum Pen { DOWN, UP };
+void displayMenu(void);
 
-void walk(const int dir, const int pen);
-void print_matrix(void);
-int get_input(void);
-int normalize_dir(int dir);
+/*	Sets all matrix slots to '.' and Center with 'T' where
+	turtle initiality stands. Initial turtlue position can 
+	ben altered at main() begining. */
+void startMatrix(char [][SIZE], int []);
 
-int main()
-{
+/* Display atual state of Logo matrix */
+void displayMatrix(char [][SIZE]);
 
-    int input;
-    int pen = DOWN;
-    int dir = 0;		/* turtle direction in degree: eg 0 right, 90 up, 
-				   180 left, 270 below */
-    while (1) {
-	input = get_input();
-	switch (input) {
-	case 1:
-	    pen = DOWN;
-	    break;
-	case 2:
-	    pen = UP;
-	    break;
-	case 3:
-	    dir -= 90;
-	    dir = normalize_dir(dir);
-	    printf("Direction in degree: %d\n", dir);
-	    break;
-	case 4:
-	    dir += 90;
-	    dir = normalize_dir(dir);
-	    printf("Direction in degree: %d\n", dir);
-	    break;
-	case 5:
-	    walk(dir, pen);
-	    break;
-	case 6:
-	    print_matrix();
-	    break;
-	case 9:
-	    print_matrix();
-	    return 0;
-	default:
-	    printf("Wrong input, try again\n");
-	}			/* end switch */
-    }				/* end while */
+/* DOWN == 0, RIGHT == 1, UP == 2, LEFT == 3 
+	Needs 5 in parameter list: the matix, atual position, average, 
+   direction and pen state. */
+void moveTurtle(char [][SIZE], int [], int, int, int);
+
+int rotateCounter(int);
+
+int rotateClock(int);
+
+void clearStdin(void);
+
+/* Just to clear stdin input for scanf's inside while loop*/
+void clearStdin(void);
+
+/* * 
+
+	MAIN 
+
+* */
+int main(void)
+{	
+	/* Defines the matrix to be inputed in any function 
+		who will write or display the turtle matrix. */
+	char matrix[SIZE][SIZE];
+
+	/* Initial position can be changed here */
+	int pos[2] = {SIZE/2, SIZE/2};
+
+	/* loop varible control */
+	int sentinel = 1;
+	
+	/* Start with tutle moving DOWN by default */	
+	int direction = 0;
+
+	int pen = 1; /* 1 - DOWN, 0 - UP */
+
+	startMatrix(matrix, pos);
+
+	displayMenu();
+
+	while(sentinel){
+
+		int option[2];
+
+		if(1 == scanf("%1d", &option[0])){
+
+			switch(option[0]){
+		
+				case 1:
+					printf("Pen top\n");	
+					pen = 0;
+					break;		
+
+				case 2:
+					printf("Pen down\n");
+					pen = 1;
+					break;
+
+				case 3:
+					direction = rotateClock(direction);
+					break;
+
+				case 4:
+					direction = rotateCounter(direction);
+					break;
+
+				case 5:
+					if(1 == scanf(",%2d", &option[1])){
+						moveTurtle(matrix, pos, option[1], direction, pen);
+						clearStdin(); 
+					}
+					else{
+						printf("Failed to read second integer.\n"); 
+                  clearStdin();
+               }  
+					break;
+			
+				case 6:
+					displayMatrix(matrix);
+					printf("Atual Position:x = %d, y = %d\n", pos[0] + 1, pos[1] + 1);  
+					break;
+
+				case 9:
+					sentinel = 0;
+					break;
+
+				default:
+					puts("Invalid option, try again.");
+					break;
+			}/* end switch */	
+			
+		}/* end scanf if */	
+		else{		
+			puts("Failed to read integer.");
+			clearStdin();
+      }
+	}/* end while */
+
+	return 0;
+}/* end main */
+
+/* Functions Implementations 
+	(keep same down order from prototypes) */
+
+void displayMenu(void){
+
+	printf("\n"
+	"Pen UP       - 1\n"
+	"Pen DOWN     - 2\n"
+	"Turn right   - 3\n"
+	"Turn left    - 4\n"
+	"Walk,steps   - 5,x\n"
+	"Print matrix - 6\n" 
+	"End          - 9\n\n" 
+	"Insert command: ");
 }
 
-int normalize_dir(int dir)
-{
-    int res;
+void startMatrix(char matrix[][SIZE], int pos[]){
 
-    if (dir < 0)
-	res = 360 + dir;
-    else if (dir >= 360)
-	res = dir - 360;
-    else
-	res = dir;
+	 int i, j;
 
-    return res;
+    for( i = 0; i < SIZE; i++)
+        for( j = 0; j < SIZE; j++)
+            matrix[i][j] = '.';
 
+	matrix[pos[0]][pos[1]] = 'T';
 }
 
-void walk(const int dir, const int pen)
-{
+void displayMatrix(char matrix[][SIZE]){
 
-    int step;
-    int i;
-    int xposmodifier;
-    int yposmodifier;
+	int i, j;
 
-    if (dir == 0) {
-	xposmodifier = 1;
-	yposmodifier = 0;
-    } else if (dir == 90) {
-	xposmodifier = 0;
-	yposmodifier = -1;	/* -1 because we're going up in the matrix */
-    } else if (dir == 180) {
-	xposmodifier = -1;
-	yposmodifier = 0;
-    } else if (dir == 270) {
-	xposmodifier = 0;
-	yposmodifier = 1;	/* 1 because we're going down in the matrix */
-    }
+	for(i = 0; i < SIZE; i++){
 
-    printf("How many steps? ");
-    scanf("%d", &step);
+		for(j = 0; j < SIZE; j++){
 
-    for (i = 0; i < step; i++) {
+			printf("%c ", matrix[i][j]);  
+		}
+		printf("\n");
+	}
+}
 
-	xpos += xposmodifier;
-	if (xpos < 0) {
-	    xpos = 0;
-	} else if (xpos > FLOOR_DIM) {
-	    xpos = FLOOR_DIM;
+void moveTurtle(char matrix[][SIZE], int pos[], int pass, int dir, int pen){
+
+	int i; /*Counter loop variable */
+	int final_pos;
+	
+/* Direction: DOWN == 0 */
+	if(dir == 0){
+	/* internal if to check arrays bounds and not pass */
+		final_pos = pos[1] + pass;	
+
+		if(0 <= final_pos && final_pos < SIZE){
+			
+			if(pen == 1){
+				
+				for(i = pos[1]; i < pos[1] + pass; i++)
+					matrix[i][pos[0]] = '*';	
+
+			}else {
+				
+				(matrix[pos[1]][pos[0]] == '*' || matrix[pos[1]][pos[0]] == 'T')?
+				(matrix[pos[1]][pos[0]] = '*') : (matrix[pos[1]][pos[0]] = '.');
+			}
+				
+				pos[1] = final_pos;
+
+				matrix[pos[1]][pos[0]] = 'T';	
+
+		}else			
+			puts("Invalid position. Try again:");
 	}
 
-	ypos += yposmodifier;
-	if (ypos < 0) {
-	    ypos = 0;
-	} else if (ypos > FLOOR_DIM) {
-	    ypos = FLOOR_DIM;
+/* Direction: RIGHT == 1 */
+	else if(dir == 1){
+
+		final_pos = pos[0] + pass;
+
+		if(0 <= final_pos && final_pos < SIZE){
+
+			if(pen == 1){
+	
+				for(i = pos[0]; i < pos[0] + pass; i++)
+					matrix[pos[1]][i] = '*';
+			
+			}else {
+				
+				(matrix[pos[1]][pos[0]] == '*' || matrix[pos[1]][pos[0]] == 'T')?
+				(matrix[pos[1]][pos[0]] = '*') : (matrix[pos[1]][pos[0]] = '.');
+			}
+			
+			pos[0] = final_pos;
+
+			matrix[pos[1]][pos[0]] = 'T';	
+
+		}else
+			puts("Invalid position. Try again:");	
 	}
 
-	if (pen == UP) {
-	    Floor[ypos][xpos] = 1;
+/* Direction: UP == 2 */
+	else if(dir == 2){
+
+		final_pos = pos[1] - pass;
+
+		if(0 <= final_pos && final_pos < SIZE){
+
+			if(pen == 1){ 
+
+				for(i = pos[1]; i > pos[1] - pass; i--)
+					matrix[i][pos[0]] = '*';
+				
+			}else{
+
+				(matrix[pos[1]][pos[0]] == '*' || matrix[pos[1]][pos[0]] == 'T')?
+				(matrix[pos[1]][pos[0]] = '*') : (matrix[pos[1]][pos[0]] = '.');		
+			}
+
+			pos[1] = final_pos;
+
+			matrix[pos[1]][pos[0]] = 'T';	
+
+		}else
+			puts("Invalid position. Try Again.");
 	}
-    }
 
+/* Direction: LEFT == 3 */
+	else if(dir == 3){
 
+		final_pos = pos[0] - pass;
+
+		if(0 <= final_pos && final_pos < SIZE){
+
+			if(pen == 1){
+
+				for(i = pos[0]; i > pos[0] - pass; i--)
+					matrix[pos[1]][i] = '*';
+
+			}else{
+
+				(matrix[pos[1]][pos[0]] == '*' || matrix[pos[1]][pos[0]] == 'T')?
+				(matrix[pos[1]][pos[0]] = '*') : (matrix[pos[1]][pos[0]] = '.');
+			}
+
+			pos[0] = final_pos;
+
+			matrix[pos[1]][pos[0]] = 'T';
+
+		}else
+			puts("Invalid position. Try again.");
+	}
 }
 
-int get_input(void)
-{
-    int input;
-    printf("\n"
-	   "1) Pen UP\n"
-	   "2) Pen DOWN\n"
-	   "3) Turn right\n"
-	   "4) Turn left\n"
-	   "5) Walk x steps\n"
-	   "6) Print matrix\n" "9) End\n\n" "Insert command: ");
-    scanf("%d", &input);
-    return input;
+int rotateCounter(int value){
+
+	value++;
+
+	return value % 4;
 }
 
-void print_matrix(void)
-{
-    int i, j;
+int rotateClock(int value){
 
-    for (i = 0; i < FLOOR_DIM; i++) {
-	for (j = 0; j < FLOOR_DIM; j++)
-	    /* . is definely better than ' ' */
-	    printf(Floor[i][j] ? "#" : ".");
-	printf("\n");
-    }
-    printf("\n");
+	if(value == 0)		
+		value = 3;
+
+	else{
+
+		value--;
+	}
+	return value % 4;
+}
+
+void clearStdin(void){	
+
+	char c;
+	
+	while(( c = getchar() ) != '\n');
 }
